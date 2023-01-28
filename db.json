@@ -1,5 +1,38 @@
 {
-  "users": [{ "id": 1, "name": "Myra" }],
+  "users": [
+    {
+      "id": 1,
+      "name": "Myra"
+    },
+    {
+      "name": "Eddie Hermiston",
+      "id": 2
+    },
+    {
+      "name": "Anne Kuhlman",
+      "id": 3
+    },
+    {
+      "name": "Omar Feil",
+      "id": 4
+    },
+    {
+      "name": "Janie Fisher",
+      "id": 5
+    },
+    {
+      "name": "Thelma Yundt",
+      "id": 6
+    },
+    {
+      "name": "Mr. Elizabeth Skiles",
+      "id": 7
+    },
+    {
+      "name": "Lora Fadel",
+      "id": 8
+    }
+  ],
   "albums": [],
   "photos": []
 }
