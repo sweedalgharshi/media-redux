@@ -3,6 +3,7 @@ import Button from './Button';
 import { removeUser } from '../store';
 import { useThunk } from '../hooks/useThunk';
 import ExpandablePanel from './ExpandablePanel';
+import AlbumsList from './AlbumsList';
 import { Fragment } from 'react';
 
 function UsersListItem({ user }) {
@@ -22,7 +23,11 @@ function UsersListItem({ user }) {
     </Fragment>
   );
 
-  return <ExpandablePanel header={header}>Content</ExpandablePanel>;
+  return (
+    <ExpandablePanel header={header}>
+      <AlbumsList user={user} />
+    </ExpandablePanel>
+  );
 }
 
 export default UsersListItem;
