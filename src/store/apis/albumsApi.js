@@ -7,6 +7,7 @@ const albumsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3005',
   }),
+
   endpoints(builder) {
     return {
       fetchAlbums: builder.query({
