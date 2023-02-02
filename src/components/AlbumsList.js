@@ -4,13 +4,13 @@ import {
   useRemoveAlbumMutation,
 } from '../store';
 import Skeleton from './Skeleton';
-import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
+import AlbumsListItems from './AlbumsListItems';
 
 function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
   const [addAlbum, results] = useAddAlbumMutation();
-  const [removeAlbum, removeAlbumResult] = useAddAlbumMutation();
+  const [removeAlbum, removeAlbumResult] = useRemoveAlbumMutation();
 
   const handleAddAlbum = () => {
     addAlbum(user);
@@ -23,13 +23,7 @@ function AlbumsList({ user }) {
     content = <div>Error loading album...</div>;
   } else {
     content = data.map((album) => {
-      const header = <div>{album.title}</div>;
-
-      return (
-        <ExpandablePanel header={header} key={album.id}>
-          List of photos in the album.
-        </ExpandablePanel>
-      );
+      return <AlbumsListItems album={album} />;
     });
   }
 
