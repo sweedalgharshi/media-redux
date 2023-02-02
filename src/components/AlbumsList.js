@@ -1,4 +1,8 @@
-import { useFetchAlbumsQuery, useAddAlbumMutation } from '../store';
+import {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} from '../store';
 import Skeleton from './Skeleton';
 import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
@@ -6,6 +10,7 @@ import Button from './Button';
 function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
   const [addAlbum, results] = useAddAlbumMutation();
+  const [removeAlbum, removeAlbumResult] = useAddAlbumMutation();
 
   const handleAddAlbum = () => {
     addAlbum(user);
@@ -13,7 +18,7 @@ function AlbumsList({ user }) {
 
   let content;
   if (isLoading) {
-    content = <Skeleton times={3} />;
+    content = <Skeleton times={3} className="h-10 w-full" />;
   } else if (error) {
     content = <div>Error loading album...</div>;
   } else {
