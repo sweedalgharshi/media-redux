@@ -1,8 +1,4 @@
-import {
-  useFetchAlbumsQuery,
-  useAddAlbumMutation,
-  useRemoveAlbumMutation,
-} from '../store';
+import { useFetchAlbumsQuery, useAddAlbumMutation } from '../store';
 import Skeleton from './Skeleton';
 import Button from './Button';
 import AlbumsListItems from './AlbumsListItems';
@@ -10,7 +6,6 @@ import AlbumsListItems from './AlbumsListItems';
 function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
   const [addAlbum, results] = useAddAlbumMutation();
-  const [removeAlbum, removeAlbumResult] = useRemoveAlbumMutation();
 
   const handleAddAlbum = () => {
     addAlbum(user);
@@ -23,7 +18,7 @@ function AlbumsList({ user }) {
     content = <div>Error loading album...</div>;
   } else {
     content = data.map((album) => {
-      return <AlbumsListItems album={album} />;
+      return <AlbumsListItems key={album.id} album={album} />;
     });
   }
 
