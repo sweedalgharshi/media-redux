@@ -30,7 +30,9 @@ function PhotosList({ album }) {
           + Add Photos
         </Button>
       </div>
-      <div>{content}</div>
+      <div className="mx-8 flex flex-row flex-wrap justify-center">
+        {content}
+      </div>
     </div>
   );
 }
